@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+import { resizeNavbar } from '../actions/ui_actions';
 
 import '../stylesheets/css/navbar.css';
 
@@ -7,30 +11,25 @@ class Navbar extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      navbarSize: 'large',
       listVisibility: 'invisible'
     };
   }
 
   embiggen = (e) => {
     e.stopPropagation();
-    this.setState({
-      navbarSize: 'large',
-      listVisibility: 'invisible'
-    });
+    this.props.resizeNavbar('large');
+    this.setState({ listVisibility: 'invisible' });
   }
 
   diminish = (e) => {
-    this.setState({
-      navbarSize: 'small',
-      listVisibility: 'visible'
-    });
+    this.props.resizeNavbar('small');
+    this.setState({ listVisibility: 'visible' });
   }
 
   render() {
     return (
       <nav
-        className={ `navbar--${ this.state.navbarSize }` }
+        className={ `navbar--${ this.props.navbarSize }` }
         onClick={ this.diminish }>
         <div className="navbar__link-container">
           <ul className={ `navbar__list--${ this.state.listVisibility }` }>
@@ -50,4 +49,12 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+const mapStateToProps = (state) => {
+  return { navbarSize: state.ui.navbarSize };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ resizeNavbar }, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
