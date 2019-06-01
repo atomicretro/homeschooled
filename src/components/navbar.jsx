@@ -19,23 +19,23 @@ const Navbar = (props) => {
 
   const listVisibility = props.navbarSize === 'large' ? 'invisible' : 'visible';
   return (
-      <nav
-        className={ `navbar--${ props.navbarSize }` }
-        onClick={ diminish }>
-        <div className="navbar__link-container">
-          <ul className={ `navbar__list--${ listVisibility }` }>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/projects/">Projects</Link>
-            </li>
-            <li>
-              <span onClick={ embiggen }>Embiggen</span>
-            </li>
-          </ul>
-        </div>
-      </nav>
+    <nav
+      className={ `navbar--${ props.navbarSize }` }
+      onClick={ diminish }>
+      <div className="navbar__link-container">
+        <ul className={ `navbar__list--${ listVisibility }` }>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/projects/">Projects</Link>
+          </li>
+          <li>
+            <span onClick={ embiggen }>Embiggen</span>
+          </li>
+        </ul>
+      </div>
+    </nav>
   );
 }
 
