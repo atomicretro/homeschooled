@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -7,32 +7,23 @@ import { resizeNavbar } from '../actions/ui_actions';
 
 import '../stylesheets/css/navbar.css';
 
-class Navbar extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      listVisibility: 'invisible'
-    };
-  }
-
-  embiggen = (e) => {
+const Navbar = (props) => {
+  const embiggen = (e) => {
     e.stopPropagation();
-    this.props.resizeNavbar('large');
-    this.setState({ listVisibility: 'invisible' });
+    props.resizeNavbar('large');
   }
 
-  diminish = (e) => {
-    this.props.resizeNavbar('small');
-    this.setState({ listVisibility: 'visible' });
+  const diminish = (e) => {
+    props.resizeNavbar('small');
   }
 
-  render() {
-    return (
+  const listVisibility = props.navbarSize === 'large' ? 'invisible' : 'visible';
+  return (
       <nav
-        className={ `navbar--${ this.props.navbarSize }` }
-        onClick={ this.diminish }>
+        className={ `navbar--${ props.navbarSize }` }
+        onClick={ diminish }>
         <div className="navbar__link-container">
-          <ul className={ `navbar__list--${ this.state.listVisibility }` }>
+          <ul className={ `navbar__list--${ listVisibility }` }>
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -40,13 +31,12 @@ class Navbar extends Component {
               <Link to="/projects/">Projects</Link>
             </li>
             <li>
-              <span onClick={ this.embiggen }>Embiggen</span>
+              <span onClick={ embiggen }>Embiggen</span>
             </li>
           </ul>
         </div>
       </nav>
-    );
-  }
+  );
 }
 
 const mapStateToProps = (state) => {
