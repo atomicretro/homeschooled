@@ -3,19 +3,21 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 
 import Navbar from './navbar';
 import Home from './home';
+import Projects from './projects';
 
 import '../stylesheets/css/app.css';
 
 const App = () => {
   return (
-    <section className="App">
-      <Navbar />
-      <HashRouter>
+    <HashRouter>
+      <main className="App">
+        <Navbar />
         <Switch>
-          <Route path="/" component={ Home } />
+          <Route exact path="/" component={ Home } />
+          <Route path="/projects" component={ Projects } />
         </Switch>
-      </HashRouter>
-    </section>
+      </main>
+    </HashRouter>
   );
 }
 
