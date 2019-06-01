@@ -1,28 +1,37 @@
 @media (max-width: 575px) {
   .navbar--small, .navbar--large {
     width: 100vw;
+    justify-content: center;
   }
 
   .navbar--large {
     display: flex;
-    justify-content: center;
     background-color: #ff5851;
     color: white;
     font-size: 24px;
     transition: height 2s;
     z-index: 100;
-    height: 100vh;
+    height: 80vh;
   }
 
   .navbar--small {
     display: flex;
-    justify-content: center;
     background-color: #ff5851;
     color: white;
     font-size: 24px;
     transition: height 2s;
     z-index: 100;
-    height: 20vh;
+    height: 15vh;
+  }
+
+  .navbar__link-container {
+    height: 15vh;
+    display: flex;
+    align-items: center;
+  }
+
+  nav ul li {
+    display: inline-block;
   }
 }
 @media (min-width: 577px) {
@@ -32,7 +41,6 @@
 
   .navbar--large {
     display: flex;
-    justify-content: center;
     background-color: #ff5851;
     color: white;
     font-size: 24px;
@@ -43,7 +51,6 @@
 
   .navbar--small {
     display: flex;
-    justify-content: center;
     background-color: #ff5851;
     color: white;
     font-size: 24px;
@@ -51,6 +58,17 @@
     z-index: 100;
     width: 20vw;
   }
+}
+.navbar__list--visible, .navbar__list--invisible {
+  transition: opacity 2s;
+}
+
+.navbar__list--invisible {
+  opacity: 0;
+}
+
+.navbar__list--visible {
+  opacity: 100;
 }
 
 /*# sourceMappingURL=navbar.css.map */

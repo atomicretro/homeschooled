@@ -2,7 +2,6 @@
 
 @mixin nav-shared($transition) {
   display: flex;
-  justify-content: center;
   background-color: #ff5851;
   color: white;
   font-size: 24px;
@@ -13,20 +12,39 @@
 @include media('<sm') {
   $height-transition: height 2s;
 
-  %full-widths {
+  %small-navbar {
     width: 100vw;
+    justify-content: center;
   }
 
   .navbar--large {
     @include nav-shared($height-transition);
-    @extend %full-widths;
-    height: 100vh;
+    @extend %small-navbar;
+    height: 80vh;
   }
 
   .navbar--small {
     @include nav-shared($height-transition);
-    @extend %full-widths;
-    height: 20vh;
+    @extend %small-navbar;
+    height: 15vh;
+  }
+
+  .navbar__link-container {
+    height: 15vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar__list--visible {
+    // margin-top: 5vh;
+  }
+
+  nav {
+    ul {
+      li {
+        display: inline-block;
+      }
+    }
   }
 }
 
@@ -48,4 +66,18 @@
     @extend %full-heights;
     width: 20vw;
   }
+}
+
+%list-transition {
+  transition: opacity 2s;
+}
+
+.navbar__list--invisible {
+  @extend %list-transition;
+  opacity: 0;
+}
+
+.navbar__list--visible {
+  @extend %list-transition;
+  opacity: 100;
 }

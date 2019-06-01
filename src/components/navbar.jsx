@@ -7,47 +7,44 @@ class Navbar extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      size: 'large'
+      navbarSize: 'large',
+      listVisibility: 'invisible'
     };
   }
 
   embiggen = (e) => {
     e.stopPropagation();
-    this.setState({ size: 'large' });
+    this.setState({
+      navbarSize: 'large',
+      listVisibility: 'invisible'
+    });
   }
 
   diminish = (e) => {
-    this.setState({ size: 'small' });
+    this.setState({
+      navbarSize: 'small',
+      listVisibility: 'visible'
+    });
   }
 
   render() {
     return (
       <nav
-        className={ `navbar--${ this.state.size }` }
+        className={ `navbar--${ this.state.navbarSize }` }
         onClick={ this.diminish }>
-        <ul>
-          <li>
-            <Link to="/">
-              <img
-                src="home-icon.svg"
-                alt="icon of a house"
-                className="navbar__icon--visible" />
-            </Link>
-          </li>
-          <li>
-            <Link to="/projects/">
-              <img
-                src="pencil-icon.svg"
-                alt="icon of a pencil"
-                className="navbar__icon--visible" />
-            </Link>
-          </li>
-          <li>
-            <button onClick={ this.embiggen }>
-              click
-            </button>
-          </li>
-        </ul>
+        <div className="navbar__link-container">
+          <ul className={ `navbar__list--${ this.state.listVisibility }` }>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/projects/">Projects</Link>
+            </li>
+            <li>
+              <span onClick={ this.embiggen }>Embiggen</span>
+            </li>
+          </ul>
+        </div>
       </nav>
     );
   }
