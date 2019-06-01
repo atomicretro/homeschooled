@@ -1,3 +1,52 @@
+@media (max-width: 575px) {
+  .navbar--small, .navbar--large {
+    width: 100vw;
+  }
 
+  .navbar--large {
+    display: flex;
+    justify-content: center;
+    background-color: #ff5851;
+    color: white;
+    font-size: 24px;
+    transition: height 2s;
+    height: 100vh;
+  }
+
+  .navbar--small {
+    display: flex;
+    justify-content: center;
+    background-color: #ff5851;
+    color: white;
+    font-size: 24px;
+    transition: height 2s;
+    height: 20vh;
+  }
+}
+@media (min-width: 577px) {
+  .navbar--small, .navbar--large {
+    height: 100vh;
+  }
+
+  .navbar--large {
+    display: flex;
+    justify-content: center;
+    background-color: #ff5851;
+    color: white;
+    font-size: 24px;
+    transition: width 2s;
+    width: 100vw;
+  }
+
+  .navbar--small {
+    display: flex;
+    justify-content: center;
+    background-color: #ff5851;
+    color: white;
+    font-size: 24px;
+    transition: width 2s;
+    width: 20vw;
+  }
+}
 
 /*# sourceMappingURL=navbar.css.map */

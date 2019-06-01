@@ -1,0 +1,50 @@
+@import 'include-media';
+
+@mixin nav-shared($transition) {
+  display: flex;
+  justify-content: center;
+  background-color: #ff5851;
+  color: white;
+  font-size: 24px;
+  transition: $transition;
+}
+
+@include media('<sm') {
+  $height-transition: height 2s;
+
+  %full-widths {
+    width: 100vw;
+  }
+
+  .navbar--large {
+    @include nav-shared($height-transition);
+    @extend %full-widths;
+    height: 100vh;
+  }
+
+  .navbar--small {
+    @include nav-shared($height-transition);
+    @extend %full-widths;
+    height: 20vh;
+  }
+}
+
+@include media('>sm') {
+  $width-transition: width 2s;
+
+  %full-heights {
+    height: 100vh;
+  }
+
+  .navbar--large {
+    @include nav-shared($width-transition);
+    @extend %full-heights;
+    width: 100vw;
+  }
+
+  .navbar--small {
+    @include nav-shared($width-transition);
+    @extend %full-heights;
+    width: 20vw;
+  }
+}
