@@ -1,0 +1,55 @@
+@import 'include-media';
+
+.home {
+  display: flex;
+  flex-direction: column;
+}
+
+@include media('<sm') {
+  $font-transition: font-size 2s;
+  $height-transition: height 2s;
+
+  %ego-shared {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: $font-transition, $height-transition;
+  }
+
+  .home__ego-section--large {
+    @extend %ego-shared;
+    height: 20vh;
+    font-size: 60px;
+  }
+
+  .home__ego-section--small {
+    @extend %ego-shared;
+    height: 15vh;
+    font-size: 24px;
+  }
+
+  [class*="home__cool-things"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@include media('>sm') {
+
+}
+
+.home__cool-things--invisible {
+  opacity: 0;
+  transition: opacity 2s;
+}
+
+.home__cool-things--visible {
+  opacity: 100;
+  transition: opacity 0.5s;
+  transition-delay: 2s;
+}
+
+img {
+  width: 80vw;
+}

@@ -68,16 +68,14 @@
   }
 }
 
-%list-transition {
-  transition: opacity 2s;
-}
+$list-transition: opacity 2s;
 
 .navbar__list--invisible {
-  @extend %list-transition;
   opacity: 0;
+  transition: $list-transition;
 }
 
 .navbar__list--visible {
-  @extend %list-transition;
   opacity: 100;
+  transition: $list-transition;
 }

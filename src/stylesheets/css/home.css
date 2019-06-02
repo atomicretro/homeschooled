@@ -1,3 +1,45 @@
+.home {
+  display: flex;
+  flex-direction: column;
+}
 
+@media (max-width: 575px) {
+  .home__ego-section--small, .home__ego-section--large {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: font-size 2s, height 2s;
+  }
+
+  .home__ego-section--large {
+    height: 20vh;
+    font-size: 60px;
+  }
+
+  .home__ego-section--small {
+    height: 15vh;
+    font-size: 24px;
+  }
+
+  [class*=home__cool-things] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.home__cool-things--invisible {
+  opacity: 0;
+  transition: opacity 2s;
+}
+
+.home__cool-things--visible {
+  opacity: 100;
+  transition: opacity 0.5s;
+  transition-delay: 2s;
+}
+
+img {
+  width: 80vw;
+}
 
 /*# sourceMappingURL=home.css.map */

@@ -59,16 +59,14 @@
     width: 20vw;
   }
 }
-.navbar__list--visible, .navbar__list--invisible {
-  transition: opacity 2s;
-}
-
 .navbar__list--invisible {
   opacity: 0;
+  transition: opacity 2s;
 }
 
 .navbar__list--visible {
   opacity: 100;
+  transition: opacity 2s;
 }
 
 /*# sourceMappingURL=navbar.css.map */
