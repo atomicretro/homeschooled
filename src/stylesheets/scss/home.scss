@@ -5,25 +5,6 @@
   flex-direction: column;
 }
 
-%ego-shared-small {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: font-size 2s, height 2s;
-}
-
-.home__ego-section--large {
-  @extend %ego-shared-small;
-  height: 20vh;
-  font-size: 60px;
-}
-
-.home__ego-section--small {
-  @extend %ego-shared-small;
-  height: 15vh;
-  font-size: 24px;
-}
-
 [class*="home__cool-things"] {
   display: flex;
   justify-content: center;
@@ -31,27 +12,6 @@
 }
 
 @include media('>sm') {
-  %ego-shared-large {
-    transition: font-size 2s, margin 2s;
-  }
-
-  .home__ego-section--large {
-    @extend %ego-shared-large;
-    height: auto;
-    // width: 30vh;
-    font-size: 72px;
-    margin: 20vh 0 0 25px;
-  }
-
-  .home__ego-section--small {
-    @extend %ego-shared-large;
-    height: auto;
-    // width: 85vh;
-    font-size: 36px;
-    margin: 25px 0 0 25px;
-
-  }
-
   [class*="home__cool-things"] {
     display: flex;
     justify-content: center;

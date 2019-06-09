@@ -57,6 +57,24 @@ nav {
   }
 }
 
+%ego-shared-small {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: font-size 2s, height 2s;
+}
+
+.ego__container--large {
+  @extend %ego-shared-small;
+  height: 20vh;
+  font-size: 60px;
+}
+
+.ego__container--small {
+  @extend %ego-shared-small;
+  height: 15vh;
+  font-size: 24px;
+}
 
 @include media('>sm') {
   $width-transition: width 2s;
@@ -83,5 +101,26 @@ nav {
         display: list-item;
       }
     }
+  }
+
+  %ego-shared-large {
+    transition: font-size 2s, margin 2s;
+  }
+
+  .ego__container--large {
+    @extend %ego-shared-large;
+    height: auto;
+    // width: 30vh;
+    font-size: 72px;
+    margin: 20vh 0 0 25px;
+  }
+
+  .ego__container--small {
+    @extend %ego-shared-large;
+    height: auto;
+    // width: 85vh;
+    font-size: 36px;
+    margin: 25px 0 0 25px;
+
   }
 }

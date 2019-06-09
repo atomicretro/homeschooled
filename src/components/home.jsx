@@ -1,27 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+
+import { setHeader } from '../actions/ui_actions';
 
 // import Animation from './getting_home/animation';
 
 import '../stylesheets/css/home.css';
 
-const Home = (props) => {
-  return (
-    <section className="home">
-      <div className={ `home__ego-section--${ props.navbarLarge ? 'large' : 'small' }` }>
-        <h1 className="home__ego">
-          Alec Cuccia
-        </h1>
-      </div>
-      <div className={ `home__cool-things--${ props.navbarLarge ? 'invisible' : 'visible' }` }>
-        
-      </div>
-    </section>
-  );
+class Home extends Component {
+  componentDidMount() {
+    this.props.setHeader('Alec Cuccia')
+  }
+
+  render() {
+    const isLarge = this.props.navbarLarge;
+    return (
+      <section className="home">
+        <div className={ `home__cool-things--${ isLarge ? 'invisible' : 'visible' }` }>
+
+        </div>
+      </section>
+    );
+  }
 }
 
 const mapStateToProps = (state) => {
   return { navbarLarge: state.ui.navbarLarge };
 };
 
-export default connect(mapStateToProps, null)(Home);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ setHeader }, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
