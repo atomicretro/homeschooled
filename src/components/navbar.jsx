@@ -9,7 +9,7 @@ import '../stylesheets/css/navbar.css';
 
 class Navbar extends Component {
   componentDidMount() {
-    setTimeout(() => this.diminish(), 5000);
+    this.timer = setTimeout(() => this.diminish(), 5000);
   }
 
   embiggen = (e) => {
@@ -18,6 +18,7 @@ class Navbar extends Component {
   }
 
   diminish = (e) => {
+    clearTimeout(this.timer)
     this.props.diminishNavbar();
   }
 
