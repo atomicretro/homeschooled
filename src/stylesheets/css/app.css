@@ -1,6 +1,7 @@
 .app {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  overflow: hidden; }
 
 .ego__header--diminished, .ego__header--embiggened {
   display: flex;
@@ -14,6 +15,7 @@
 
 .ego__header--embiggened {
   height: 12vh;
+  min-height: 70px;
   font-size: 24px; }
 
 @media (min-width: 577px) {

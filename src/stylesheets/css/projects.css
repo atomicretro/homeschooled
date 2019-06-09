@@ -1,4 +1,29 @@
-img {
-  width: 360px; }
+.projects--invisible {
+  opacity: 0; }
+
+.projects--visible {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.projects__portfolio-link {
+  width: 90%;
+  margin-bottom: 20px; }
+
+.projects__portfolio-img {
+  width: 100%; }
+
+@media (min-width: 577px) {
+  .projects--visible {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around; }
+
+  .projects__portfolio-link {
+    width: 450px; }
+
+  .portfolio-img {
+    width: 450px; } }
 
 /*# sourceMappingURL=projects.css.map */

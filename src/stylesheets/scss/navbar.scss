@@ -25,12 +25,15 @@
   @include nav-shared($height-transition);
   @extend %diminished-navbar;
   height: $small-screen-diminished-nav;
+  min-height: $small-screen-diminished-nav-min-height;
 }
 
 .navbar__link-container {
   height: $small-screen-diminished-nav;
+  min-height: $small-screen-diminished-nav-min-height;
   display: flex;
   align-items: center;
+  transition: $height-transition;
 }
 
 .navbar__list--invisible {
