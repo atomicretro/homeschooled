@@ -9,16 +9,19 @@ import Projects from './projects/projects';
 import '../stylesheets/css/app.css';
 
 const App = (props) => {
+  const contentSize = props.navbarLarge ? 'diminished' : 'embiggened';
   return (
     <main className="app">
       <Navbar />
-      <div className={ `ego__container--${ props.navbarLarge ? 'large' : 'small' }` }>
-        <h1 className="ego__header">{ props.header }</h1>
-      </div>
-      <Switch>
-        <Route exact path="/" component={ Home } />
-        <Route path="/projects" component={ Projects } />
-      </Switch>
+      <section className={ `content--${ contentSize }` }>
+        <h1 className={ `ego__header--${ contentSize }` }>
+          { props.header }
+        </h1>
+        <Switch>
+          <Route exact path="/" component={ Home } />
+          <Route path="/projects" component={ Projects } />
+        </Switch>
+      </section>
     </main>
   );
 }

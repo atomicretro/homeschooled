@@ -25,7 +25,7 @@ class Navbar extends Component {
     const isLarge = this.props.navbarLarge;
     return (
       <nav
-        className={ `navbar--${ isLarge ? 'large' : 'small' }` }
+        className={ `navbar--${ isLarge ? 'embiggened' : 'diminished' }` }
         onClick={ this.diminish }>
         <div className="navbar__link-container">
           <ul className={ `navbar__list--${ isLarge ? 'invisible' : 'visible' }` }>

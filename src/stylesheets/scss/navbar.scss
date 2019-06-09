@@ -1,4 +1,5 @@
 @import 'include-media';
+@import 'variables';
 
 @mixin nav-shared($transition) {
   display: flex;
@@ -9,44 +10,37 @@
   z-index: 100;
 }
 
-$height-transition: height 2s;
-$list-transition: opacity 2s;
-
-%small-navbar {
+%diminished-navbar {
   width: 100vw;
   justify-content: center;
 }
 
-.navbar--large {
+.navbar--embiggened {
   @include nav-shared($height-transition);
-  @extend %small-navbar;
-  height: 80vh;
+  @extend %diminished-navbar;
+  height: $small-screen-full-nav;
 }
 
-.navbar--small {
+.navbar--diminished {
   @include nav-shared($height-transition);
-  @extend %small-navbar;
-  height: 15vh;
+  @extend %diminished-navbar;
+  height: $small-screen-diminished-nav;
 }
 
 .navbar__link-container {
-  height: 15vh;
+  height: $small-screen-diminished-nav;
   display: flex;
   align-items: center;
 }
 
-.navbar__list--visible {
-  // margin-top: 5vh;
-}
-
 .navbar__list--invisible {
   opacity: 0;
-  transition: $list-transition;
+  transition: $opacity-transition;
 }
 
 .navbar__list--visible {
   opacity: 100;
-  transition: $list-transition;
+  transition: $opacity-transition;
 }
 
 nav {
@@ -57,42 +51,23 @@ nav {
   }
 }
 
-%ego-shared-small {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: font-size 2s, height 2s;
-}
-
-.ego__container--large {
-  @extend %ego-shared-small;
-  height: 20vh;
-  font-size: 60px;
-}
-
-.ego__container--small {
-  @extend %ego-shared-small;
-  height: 15vh;
-  font-size: 24px;
-}
-
 @include media('>sm') {
-  $width-transition: width 2s;
+
 
   %full-heights {
     height: 100vh;
   }
 
-  .navbar--large {
+  .navbar--embiggened {
     @include nav-shared($width-transition);
     @extend %full-heights;
-    width: 70vw;
+    width: $large-screen-full-nav;
   }
 
-  .navbar--small {
+  .navbar--diminished {
     @include nav-shared($width-transition);
     @extend %full-heights;
-    width: 15vw;
+    width: $large-screen-diminished-nav;
   }
 
   nav {
@@ -101,26 +76,5 @@ nav {
         display: list-item;
       }
     }
-  }
-
-  %ego-shared-large {
-    transition: font-size 2s, margin 2s;
-  }
-
-  .ego__container--large {
-    @extend %ego-shared-large;
-    height: auto;
-    // width: 30vh;
-    font-size: 72px;
-    margin: 20vh 0 0 25px;
-  }
-
-  .ego__container--small {
-    @extend %ego-shared-large;
-    height: auto;
-    // width: 85vh;
-    font-size: 36px;
-    margin: 25px 0 0 25px;
-
   }
 }

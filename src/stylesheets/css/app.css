@@ -1,10 +1,51 @@
-@media (max-width: 575px) {
-  .app {
-    display: flex;
-    flex-direction: column; } }
+.app {
+  display: flex;
+  flex-direction: column; }
+
+.ego__header--diminished, .ego__header--embiggened {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: font-size 2s, height 2s; }
+
+.ego__header--diminished {
+  height: 30vh;
+  font-size: 60px; }
+
+.ego__header--embiggened {
+  height: 12vh;
+  font-size: 24px; }
+
 @media (min-width: 577px) {
+  .content--diminished, .content--embiggened {
+    transition: width 2s; }
+
+  .ego__header--diminished, .ego__header--embiggened {
+    float: left;
+    transition: font-size 2s, margin 2s, height 2s; }
+
   .app {
     display: flex;
-    flex-direction: row; } }
+    flex-direction: row; }
+
+  .content--diminished {
+    width: 30vw; }
+
+  .content--embiggened {
+    width: 85vw;
+    display: flex;
+    flex-direction: column; }
+
+  .ego__header--diminished {
+    height: auto;
+    font-size: 72px;
+    align-self: flex-start;
+    margin: 20vh 0 0 25px; }
+
+  .ego__header--embiggened {
+    height: auto;
+    font-size: 36px;
+    margin: 25px 0 0 25px;
+    align-self: flex-start; } }
 
 /*# sourceMappingURL=app.css.map */
