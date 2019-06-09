@@ -1,0 +1,10 @@
+canvas {
+  width: 640px;
+  height: 425px;
+}
+
+.foreground-canvas {
+  position: absolute;
+  left: 0;
+  border: solid 1px black;
+}

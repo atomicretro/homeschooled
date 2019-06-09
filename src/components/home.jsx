@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Animation from './getting_home/animation';
+// import Animation from './getting_home/animation';
 
 import '../stylesheets/css/home.css';
 

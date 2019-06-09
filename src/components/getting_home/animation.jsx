@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Canvas from './canvas';
 import Background from './background';
 
+import '../../stylesheets/css/getting_home.css';
+
 class Animation extends Component {
   constructor(props) {
     super(props);

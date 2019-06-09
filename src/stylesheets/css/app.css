@@ -2,13 +2,5 @@
   display: flex; }
 @media (min-width: 577px) {
   display: flex; }
-canvas {
-  width: 640px;
-  height: 425px; }
-
-.foreground-canvas {
-  position: absolute;
-  left: 0;
-  border: solid 1px black; }
 
 /*# sourceMappingURL=app.css.map */
