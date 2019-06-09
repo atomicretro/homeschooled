@@ -9,7 +9,7 @@ import '../stylesheets/css/app.css';
 
 const App = () => {
   return (
-    <main className="App">
+    <main className="app">
       <Navbar />
       <Switch>
         <Route exact path="/" component={ Home } />

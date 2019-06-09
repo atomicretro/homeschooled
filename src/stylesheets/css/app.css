@@ -1,6 +1,10 @@
 @media (max-width: 575px) {
-  display: flex; }
+  .app {
+    display: flex;
+    flex-direction: column; } }
 @media (min-width: 577px) {
-  display: flex; }
+  .app {
+    display: flex;
+    flex-direction: row; } }
 
 /*# sourceMappingURL=app.css.map */

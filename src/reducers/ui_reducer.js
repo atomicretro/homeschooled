@@ -1,15 +1,23 @@
-import { RESIZE_NAVBAR } from '../actions/ui_actions';
+import {
+  EMBIGGEN_NAVBAR,
+  DIMINISH_NAVBAR
+} from '../actions/ui_actions';
 
 const defaultState = {
-  navbarSize: 'large'
+  navbarLarge: true
 };
 
 const UIReducer = (state=defaultState, action) => {
   switch (action.type) {
-    case RESIZE_NAVBAR:
+    case EMBIGGEN_NAVBAR:
       return {
         ...state,
-        navbarSize: action.size
+        navbarLarge: true
+      };
+    case DIMINISH_NAVBAR:
+      return {
+        ...state,
+        navbarLarge: false
       };
     default:
       return state;

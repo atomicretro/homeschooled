@@ -1,50 +1,56 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { resizeNavbar } from '../actions/ui_actions';
+import { embiggenNavbar, diminishNavbar } from '../actions/ui_actions';
 
 import '../stylesheets/css/navbar.css';
 
-const Navbar = (props) => {
-  const embiggen = (e) => {
+class Navbar extends Component {
+  componentDidMount() {
+    setTimeout(() => this.diminish(), 5000);
+  }
+
+  embiggen = (e) => {
     e.stopPropagation();
-    props.resizeNavbar('large');
+    this.props.embiggenNavbar();
   }
 
-  const diminish = (e) => {
-    props.resizeNavbar('small');
+  diminish = (e) => {
+    this.props.diminishNavbar();
   }
 
-  const listVisibility = props.navbarSize === 'large' ? 'invisible' : 'visible';
-  return (
-    <nav
-      className={ `navbar--${ props.navbarSize }` }
-      onClick={ diminish }>
-      <div className="navbar__link-container">
-        <ul className={ `navbar__list--${ listVisibility }` }>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/projects/">Projects</Link>
-          </li>
-          <li>
-            <span onClick={ embiggen }>Embiggen</span>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  );
+  render() {
+    const isLarge = this.props.navbarLarge;
+    return (
+      <nav
+        className={ `navbar--${ isLarge ? 'large' : 'small' }` }
+        onClick={ this.diminish }>
+        <div className="navbar__link-container">
+          <ul className={ `navbar__list--${ isLarge ? 'invisible' : 'visible' }` }>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/projects/">Projects</Link>
+            </li>
+            <li>
+              <span onClick={ this.embiggen }>Embiggen</span>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    );
+  }
 }
 
 const mapStateToProps = (state) => {
-  return { navbarSize: state.ui.navbarSize };
+  return { navbarLarge: state.ui.navbarLarge };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ resizeNavbar }, dispatch);
+  return bindActionCreators({ embiggenNavbar, diminishNavbar }, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

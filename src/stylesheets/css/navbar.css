@@ -1,72 +1,64 @@
-@media (max-width: 575px) {
-  .navbar--small, .navbar--large {
-    width: 100vw;
-    justify-content: center;
-  }
+.navbar--large, .navbar--small {
+  width: 100vw;
+  justify-content: center; }
 
-  .navbar--large {
-    display: flex;
-    background-color: #ff5851;
-    color: white;
-    font-size: 24px;
-    transition: height 2s;
-    z-index: 100;
-    height: 80vh;
-  }
+.navbar--large {
+  display: flex;
+  background-color: #ff5851;
+  color: white;
+  font-size: 24px;
+  transition: height 2s;
+  z-index: 100;
+  height: 80vh; }
 
-  .navbar--small {
-    display: flex;
-    background-color: #ff5851;
-    color: white;
-    font-size: 24px;
-    transition: height 2s;
-    z-index: 100;
-    height: 15vh;
-  }
+.navbar--small {
+  display: flex;
+  background-color: #ff5851;
+  color: white;
+  font-size: 24px;
+  transition: height 2s;
+  z-index: 100;
+  height: 15vh; }
 
-  .navbar__link-container {
-    height: 15vh;
-    display: flex;
-    align-items: center;
-  }
+.navbar__link-container {
+  height: 15vh;
+  display: flex;
+  align-items: center; }
 
-  nav ul li {
-    display: inline-block;
-  }
-}
-@media (min-width: 577px) {
-  .navbar--small, .navbar--large {
-    height: 100vh;
-  }
-
-  .navbar--large {
-    display: flex;
-    background-color: #ff5851;
-    color: white;
-    font-size: 24px;
-    transition: width 2s;
-    z-index: 100;
-    width: 100vw;
-  }
-
-  .navbar--small {
-    display: flex;
-    background-color: #ff5851;
-    color: white;
-    font-size: 24px;
-    transition: width 2s;
-    z-index: 100;
-    width: 20vw;
-  }
-}
 .navbar__list--invisible {
   opacity: 0;
-  transition: opacity 2s;
-}
+  transition: opacity 2s; }
 
 .navbar__list--visible {
   opacity: 100;
-  transition: opacity 2s;
-}
+  transition: opacity 2s; }
+
+nav ul li {
+  display: inline-block; }
+
+@media (min-width: 577px) {
+  .navbar--large, .navbar--small {
+    height: 100vh; }
+
+  .navbar--large {
+    display: flex;
+    background-color: #ff5851;
+    color: white;
+    font-size: 24px;
+    transition: width 2s;
+    z-index: 100;
+    width: 70vw; }
+
+  .navbar--small {
+    display: flex;
+    background-color: #ff5851;
+    color: white;
+    font-size: 24px;
+    transition: width 2s;
+    z-index: 100;
+    width: 15vw; }
+
+  nav ul li {
+    display: list-item; } }
 
 /*# sourceMappingURL=navbar.css.map */

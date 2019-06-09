@@ -1,8 +1,14 @@
-export const RESIZE_NAVBAR = 'RESIZE_NAVBAR';
+export const EMBIGGEN_NAVBAR = 'EMBIGGEN_NAVBAR';
+export const DIMINISH_NAVBAR = 'DIMINISH_NAVBAR';
 
-export const resizeNavbar = (size) => {
+export const embiggenNavbar = () => {
   return {
-    type: RESIZE_NAVBAR,
-    size
+    type: EMBIGGEN_NAVBAR
+  };
+}
+
+export const diminishNavbar = () => {
+  return {
+    type: DIMINISH_NAVBAR
   };
 }
