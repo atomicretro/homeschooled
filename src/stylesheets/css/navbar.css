@@ -36,6 +36,20 @@
 nav ul li {
   display: inline-block; }
 
+.ego__container--large, .ego__container--small {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: font-size 2s, height 2s; }
+
+.ego__container--large {
+  height: 20vh;
+  font-size: 60px; }
+
+.ego__container--small {
+  height: 15vh;
+  font-size: 24px; }
+
 @media (min-width: 577px) {
   .navbar--large, .navbar--small {
     height: 100vh; }
@@ -59,6 +73,19 @@ nav ul li {
     width: 15vw; }
 
   nav ul li {
-    display: list-item; } }
+    display: list-item; }
+
+  .ego__container--large, .ego__container--small {
+    transition: font-size 2s, margin 2s; }
+
+  .ego__container--large {
+    height: auto;
+    font-size: 72px;
+    margin: 20vh 0 0 25px; }
+
+  .ego__container--small {
+    height: auto;
+    font-size: 36px;
+    margin: 25px 0 0 25px; } }
 
 /*# sourceMappingURL=navbar.css.map */
