@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,cAAe;EACb,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,IAAI;EACf,KAAK,EAAE,MAAM;EACb,MAAM,EAAE,eAAe;;AAGzB,eAAgB;EACd,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EACZ,MAAM,EAAE,eAAe;;AAGzB,uBAAwB;EACtB,gBAAgB,EAAE,GAAG",
+"sources": ["../scss/collatz.scss"],
+"names": [],
+"file": "collatz.css"
+}

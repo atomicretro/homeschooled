@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 
-import { embiggenNavbar, diminishNavbar } from '../actions/ui_actions';
-
-import '../stylesheets/css/navbar.css';
+import '../../stylesheets/css/navbar.css';
 
 class Navbar extends Component {
   componentDidMount() {
@@ -14,22 +10,22 @@ class Navbar extends Component {
 
   embiggen = (e) => {
     e.stopPropagation();
-    this.props.embiggenNavbar();
+    this.props._embiggenNavbar();
   }
 
   diminish = (e) => {
     clearTimeout(this.timer)
-    this.props.diminishNavbar();
+    this.props._diminishNavbar();
   }
 
   render() {
     const isLarge = this.props.navbarLarge;
     return (
       <nav
-        className={ `navbar--${ isLarge ? 'embiggened' : 'diminished' }` }
+        className={ `navbar navbar--${ isLarge ? 'embiggened' : 'diminished' }` }
         onClick={ this.diminish }>
         <div className="navbar__link-container">
-          <ul className={ `navbar__list--${ isLarge ? 'invisible' : 'visible' }` }>
+          <ul className={ `navbar__link-list navbar__link-list--${ isLarge ? 'invisible' : 'visible' }` }>
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -46,12 +42,4 @@ class Navbar extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return { navbarLarge: state.ui.navbarLarge };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ embiggenNavbar, diminishNavbar }, dispatch);
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default Navbar;

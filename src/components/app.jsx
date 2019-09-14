@@ -1,9 +1,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { connect } from 'react-redux';
 
-import Navbar from './navbar';
-import Home from './home';
+import Navbar from '../containers/navbar_container';
+import Home from '../containers/home_container';
 import Projects from './projects/projects';
 
 import '../stylesheets/css/app.css';
@@ -26,8 +25,4 @@ const App = (props) => {
   );
 }
 
-const mapStateToProps = (state) => {
-  return { ...state.ui };
-};
-
-export default connect(mapStateToProps)(App);
+export default App;

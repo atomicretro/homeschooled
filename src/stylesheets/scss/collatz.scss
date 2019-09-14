@@ -1,0 +1,16 @@
+.collatz-field {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1500px;
+  border: 1px solid black;
+}
+
+.collatz-square {
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
+}
+
+.collatz-square.colored {
+  background-color: red;
+}

@@ -15,14 +15,16 @@
   justify-content: center;
 }
 
-.navbar--embiggened {
+.navbar {
   @include nav-shared($height-transition);
+}
+
+.navbar--embiggened {
   @extend %diminished-navbar;
   height: $small-screen-full-nav;
 }
 
 .navbar--diminished {
-  @include nav-shared($height-transition);
   @extend %diminished-navbar;
   height: $small-screen-diminished-nav;
   min-height: $small-screen-diminished-nav-min-height;
@@ -36,14 +38,16 @@
   transition: $height-transition;
 }
 
-.navbar__list--invisible {
-  opacity: 0;
+.navbar__link-list {
   transition: $opacity-transition;
 }
 
-.navbar__list--visible {
+.navbar__link-list--invisible {
+  opacity: 0;
+}
+
+.navbar__link-list--visible {
   opacity: 100;
-  transition: $opacity-transition;
 }
 
 nav {
