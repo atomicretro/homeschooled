@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-// import Animation from './getting_home/animation';
+import Selfie from '../selfie';
 
 import '../../stylesheets/css/home.css';
 
@@ -15,7 +15,7 @@ class Home extends Component {
     return (
       <section className="home">
         <div className={ `home__cool-things--${ isLarge ? 'visible' : 'visible' }` }>
-
+          <Selfie />
         </div>
       </section>
     );
