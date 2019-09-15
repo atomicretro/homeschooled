@@ -1,38 +1,38 @@
-@import 'include-media';
 @import 'variables';
 
-.projects--invisible {
-  opacity: 0;
-}
-
-.projects--visible {
+.portfolio {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.projects__portfolio-link {
+.portfolio--invisible {
+  height: 100vh;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.portfolio--visible {
+  opacity: 100;
+}
+
+.portfolio__link {
   width: 90%;
   margin-bottom: 20px;
 }
 
-.projects__portfolio-img {
+.portfolio__link__img {
   width: 100%;
 }
 
-@include media('>sm') {
-  .projects--visible {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+@include screen-size('md') {
+  .portfolio {
+    flex-direction: column;
+    // flex-wrap: wrap;
     justify-content: space-around;
   }
 
-  .projects__portfolio-link {
-    width: 450px;
-  }
-
-  .portfolio-img {
+  .portfolio__link {
     width: 450px;
   }
 }

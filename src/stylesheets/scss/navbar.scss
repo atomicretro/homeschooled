@@ -1,87 +1,77 @@
-@import 'include-media';
 @import 'variables';
 
-@mixin nav-shared($transition) {
+.navbar {
+  width: 100vw;
   display: flex;
-  background-color: #ff5851;
+  justify-content: center;
+  position: fixed;
   color: white;
   font-size: 24px;
-  transition: $transition;
+  background-color: #ff5851;
+  transition: $height-transition;
   z-index: 100;
 }
 
-%diminished-navbar {
-  width: 100vw;
-  justify-content: center;
-}
-
-.navbar {
-  @include nav-shared($height-transition);
-}
-
 .navbar--embiggened {
-  @extend %diminished-navbar;
-  height: $small-screen-full-nav;
+  height: $sm-full-nav;
 }
 
 .navbar--diminished {
-  @extend %diminished-navbar;
-  height: $small-screen-diminished-nav;
-  min-height: $small-screen-diminished-nav-min-height;
+  height: $sm-diminished-nav;
+  min-height: $sm-diminished-nav-min-height;
 }
 
-.navbar__link-container {
-  height: $small-screen-diminished-nav;
-  min-height: $small-screen-diminished-nav-min-height;
+.navbar__links {
+  height: $sm-diminished-nav;
+  min-height: $sm-diminished-nav-min-height;
   display: flex;
   align-items: center;
   transition: $height-transition;
 }
 
-.navbar__link-list {
+.navbar__links__list {
   transition: $opacity-transition;
 }
 
-.navbar__link-list--invisible {
-  opacity: 0;
-}
-
-.navbar__link-list--visible {
+.navbar__links__list--visible {
   opacity: 100;
 }
 
-nav {
-  ul {
-    li {
-      display: inline-block;
-    }
-  }
+.navbar__links__list--invisible {
+  opacity: 0;
 }
 
-@include media('>sm') {
+.navbar__links__list__item {
+  display: inline-block;
+}
 
+.embiggen-button {
+  @include button-reset;
+}
 
-  %full-heights {
+@include screen-size('lg') {
+  .navbar {
     height: 100vh;
+    justify-content: flex-start;
+    transition: $width-transition;
   }
 
   .navbar--embiggened {
-    @include nav-shared($width-transition);
-    @extend %full-heights;
-    width: $large-screen-full-nav;
+    width: $lg-full-nav;
   }
 
   .navbar--diminished {
-    @include nav-shared($width-transition);
-    @extend %full-heights;
-    width: $large-screen-diminished-nav;
+    width: $lg-diminished-nav;
   }
 
-  nav {
-    ul {
-      li {
-        display: list-item;
-      }
-    }
+  .navbar__links {
+    width: $lg-diminished-nav;
+    display: flex;
+    justify-content: center;
+    transition: $width-transition;
+  }
+
+  .navbar__links__list__item {
+    display: list-item;
   }
 }

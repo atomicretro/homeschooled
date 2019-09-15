@@ -1,75 +1,109 @@
-@import 'include-media';
 @import 'variables';
 
 .app {
   display: flex;
   flex-direction: column;
+  // position: relative;
   overflow: hidden;
 }
 
-%ego-shared-small-screen {
+.content {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  transition: $padding-transition;
+}
+
+.content--diminished {
+  height: $sm-diminished-content;
+  padding: $sm-full-nav 0 0 0;
+}
+
+.content--embiggened {
+
+  padding: $sm-diminished-nav 0 0 0;
+}
+
+.ego {
+  min-height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: $font-size-transition, $height-transition;
 }
 
-.ego__header--diminished {
-  @extend %ego-shared-small-screen;
-  height: $small-screen-diminished-content;
+.ego--diminished {
   font-size: 60px;
 }
 
-.ego__header--embiggened {
-  @extend %ego-shared-small-screen;
-  height: 12vh;
-  min-height: 70px;
+.ego--embiggened {
   font-size: 24px;
 }
 
-@include media('>sm') {
-  %content-shared-large-screen {
-    transition: $width-transition
-  }
+.the-main-event {
+  transition: $opacity-transition;
+}
 
-  %ego-shared-large-screen {
-    float: left;
-    transition: $font-size-transition, $margin-transition, $height-transition;
-  }
+.the-main-event--diminished {
+  width: 100%;
+  pointer-events: none;
+  opacity: 0;
+  overflow: hidden;
+}
 
+@include screen-size(lg) {
   .app {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    transition: $width-transition, $padding-transition;
   }
 
   .content--diminished {
-    @extend %content-shared-large-screen;
-    width: $large-screen-diminished-content;
+    height: 100vh;
+    width: $lg-diminished-content;
+    padding: 0 0 0 $lg-full-nav;
   }
 
   .content--embiggened {
-    @extend %content-shared-large-screen;
-    width: $large-screen-full-content;
-    display: flex;
-    flex-direction: column;
+    height: auto;
+    width: $lg-full-content;
+    padding: 0 0 0 $lg-diminished-nav;
   }
 
-  .ego__header--diminished {
-    @extend %ego-shared-large-screen;
+  .ego {
     height: auto;
+    float: left;
+    align-self: flex-start;
+    transition: $font-size-transition, $margin-transition, $height-transition;
+  }
+
+  .ego--diminished {
     // width: 30vh;
     font-size: 72px;
-    align-self: flex-start;
     margin: 20vh 0 0 25px;
   }
 
-  .ego__header--embiggened {
-    @extend %ego-shared-large-screen;
-    height: auto;
-    // width: $large-screen-full-content;
+  .ego--embiggened {
+    // width: $lg-full-content;
     font-size: 36px;
     margin: 25px 0 0 25px;
-    align-self: flex-start;
+  }
 
+  .ego__header {
+    min-width: 265px;
+    max-width: 330px;
+  }
+
+  .the-main-event--diminished {
+    width: 100%;
+    pointer-events: none;
+    opacity: 0;
+    overflow: hidden;
   }
 }

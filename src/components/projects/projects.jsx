@@ -1,49 +1,36 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-
-import { setHeader } from '../../actions/ui_actions';
 
 import '../../stylesheets/css/projects.css';
 
 class Projects extends Component {
   componentDidMount() {
-    this.props.setHeader('Projects')
+    document.title = "Alec Cuccia • Projects";
+    this.props._setHeader('Projects');
   }
 
   render() {
+    const projects = [
+      { name: 'enjambment', designation: 'enjambment' },
+      { name: 'Neon Circles', designation: 'neon_circles' },
+      { name: 'Ruby Chess', designation: 'ruby_chess' },
+    ];
+
     return(
-      <section className={ `projects--${this.props.navbarLarge ? 'invisible' : 'visible'}`} >
-        <Link to="/projects/enjambment" className="projects__portfolio-link">
-          <img
-            className="projects__portfolio-img"
-            src="img/portfolio/enjambment_logo.png"
-            alt="Logo for enjambment. Click to view project." />
-        </Link>
-        <Link to="/projects/neon_circles" className="projects__portfolio-link">
-          <img
-            className="projects__portfolio-img"
-            src="img/portfolio/neon_circles_logo.png"
-            alt="Logo for neon circles. Click to view project." />
-        </Link>
-        <Link to="/projects/ruby_chess" className="projects__portfolio-link">
-          <img
-            className="projects__portfolio-img"
-            src="img/portfolio/ruby-chess_logo.png"
-            alt="Logo for neon circles. Click to view project." />
-        </Link>
+      <section className={ `portfolio portfolio--${this.props.navbarLarge ? 'invisible' : 'visible'}`} >
+        {
+          projects.map((project, idx) => (
+            <Link key={ `pro-${ idx }` } to={ `/projects/${ project.designation }` } className="portfolio__link">
+              <img
+                className="portfolio__link__img"
+                src={ `img/portfolio/${ project.designation }.png` }
+                alt={ `Logo for ${ project.name }. Click to view project.` } />
+            </Link>
+          ))
+        }
       </section>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return { navbarLarge: state.ui.navbarLarge };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ setHeader }, dispatch);
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Projects);
+export default Projects;

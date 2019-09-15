@@ -1,12 +1,11 @@
-.navbar--embiggened, .navbar--diminished {
-  width: 100vw;
-  justify-content: center; }
-
 .navbar {
+  width: 100vw;
   display: flex;
-  background-color: #ff5851;
+  justify-content: center;
+  position: fixed;
   color: white;
   font-size: 24px;
+  background-color: #ff5851;
   transition: height 2s;
   z-index: 100; }
 
@@ -17,48 +16,52 @@
   height: 15vh;
   min-height: 90px; }
 
-.navbar__link-container {
+.navbar__links {
   height: 15vh;
   min-height: 90px;
   display: flex;
   align-items: center;
   transition: height 2s; }
 
-.navbar__link-list {
+.navbar__links__list {
   transition: opacity 2s; }
 
-.navbar__link-list--invisible {
-  opacity: 0; }
-
-.navbar__link-list--visible {
+.navbar__links__list--visible {
   opacity: 100; }
 
-nav ul li {
+.navbar__links__list--invisible {
+  opacity: 0; }
+
+.navbar__links__list__item {
   display: inline-block; }
 
-@media (min-width: 577px) {
-  .navbar--embiggened, .navbar--diminished {
-    height: 100vh; }
+.embiggen-button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer; }
+
+@media only screen and (min-width: 992px) {
+  .navbar {
+    height: 100vh;
+    justify-content: flex-start;
+    transition: width 2s; }
 
   .navbar--embiggened {
-    display: flex;
-    background-color: #ff5851;
-    color: white;
-    font-size: 24px;
-    transition: width 2s;
-    z-index: 100;
     width: 70vw; }
 
   .navbar--diminished {
-    display: flex;
-    background-color: #ff5851;
-    color: white;
-    font-size: 24px;
-    transition: width 2s;
-    z-index: 100;
     width: 15vw; }
 
-  nav ul li {
+  .navbar__links {
+    width: 15vw;
+    display: flex;
+    justify-content: center;
+    transition: width 2s; }
+
+  .navbar__links__list__item {
     display: list-item; } }
 
 /*# sourceMappingURL=navbar.css.map */

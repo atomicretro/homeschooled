@@ -6,7 +6,8 @@ import '../../stylesheets/css/home.css';
 
 class Home extends Component {
   componentDidMount() {
-    this.props._setHeader('Alec Cuccia')
+    document.title = "Alec Cuccia";
+    this.props._setHeader('Alec Cuccia');
   }
 
   render() {

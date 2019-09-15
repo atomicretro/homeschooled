@@ -5,6 +5,7 @@ import { HashRouter } from 'react-router-dom';
 import App from '../containers/app_container';
 
 const Root = ({ store }) => {
+  console.log('<3 anyi <3');
   return (
     <Provider store={ store }>
       <HashRouter>

@@ -1,4 +1,3 @@
-@import 'include-media';
 @import 'variables';
 
 .home {
@@ -12,7 +11,7 @@
   align-items: center;
 }
 
-@include media('>sm') {
+@include screen-size('md') {
   [class*="home__cool-things"] {
     display: flex;
     justify-content: center;
@@ -21,12 +20,12 @@
 }
 
 .home__cool-things--invisible {
-  opacity: 0;
-  transition: $opacity-transition;
+  // opacity: 0;
+  // transition: $opacity-transition;
 }
 
 .home__cool-things--visible {
-  opacity: 100;
-  transition: opacity 0.5s;
-  transition-delay: 2s;
+  // opacity: 100;
+  // transition: opacity 0.5s;
+  // transition-delay: 2s;
 }

@@ -20,20 +20,26 @@ class Navbar extends Component {
 
   render() {
     const isLarge = this.props.navbarLarge;
+    const links = [
+      { title: "Home", to: "/" },
+      { title: "Projects", to: "/projects" },
+    ];
+
     return (
       <nav
         className={ `navbar navbar--${ isLarge ? 'embiggened' : 'diminished' }` }
         onClick={ this.diminish }>
-        <div className="navbar__link-container">
-          <ul className={ `navbar__link-list navbar__link-list--${ isLarge ? 'invisible' : 'visible' }` }>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/projects/">Projects</Link>
-            </li>
-            <li>
-              <span onClick={ this.embiggen }>Embiggen</span>
+        <div className="navbar__links">
+          <ul className={ `navbar__links__list navbar__links__list--${ isLarge ? 'invisible' : 'visible' }` }>
+            {
+              links.map((link, idx) => (
+                <li key={ `nav-${ idx }` } className="navbar__links__list__item">
+                  <Link to={ link.to }>{ link.title }</Link>
+                </li>
+              ))
+            }
+            <li key="nav-embiggen" className="navbar__links__list__item">
+              <button className="embiggen-button" onClick={ this.embiggen }>Embiggen</button>
             </li>
           </ul>
         </div>

@@ -1,21 +1,56 @@
-$small-screen-full-nav: 70vh;
-$small-screen-diminished-content: 30vh;
+// xs, sm, & md sizes
+$sm-full-nav: 70vh;
+$sm-diminished-content: 30vh;
 
-$small-screen-diminished-nav: 15vh;
-$small-screen-diminished-nav-min-height: 90px;
-$small-screen-full-content: 85vh;
+$sm-diminished-nav: 15vh;
+$sm-diminished-nav-min-height: 90px;
+$sm-full-content: 85vh;
+
+// lg & xl sizes
+$lg-full-nav: 70vw;
+$lg-diminished-content: 30vw;
+
+$lg-diminished-nav: 15vw;
+$lg-full-content: 85vw;
 
 
-$large-screen-full-nav: 70vw;
-$large-screen-diminished-content: 30vw;
-
-$large-screen-diminished-nav: 15vw;
-$large-screen-full-content: 85vw;
-
-
-
+// transitions
 $font-size-transition: font-size 2s;
 $height-transition: height 2s;
 $margin-transition: margin 2s;
 $opacity-transition: opacity 2s;
 $width-transition: width 2s;
+$padding-transition: padding 2s;
+
+
+// button reset
+@mixin button-reset {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+
+// media queries
+$break-sm: 576px;
+$break-md: 768px;
+$break-lg: 992px;
+$break-xl: 1200px;
+
+@mixin screen-size($media) {
+  @if $media == sm {
+    @media only screen and (min-width: $break-sm) { @content; }
+  }
+  @else if $media == md {
+    @media only screen and (min-width: $break-md) { @content; }
+  }
+  @else if $media == lg {
+    @media only screen and (min-width: $break-lg) { @content; }
+  }
+  @else if $media == xl {
+    @media only screen and (min-width: $break-xl) { @content; }
+  }
+}
